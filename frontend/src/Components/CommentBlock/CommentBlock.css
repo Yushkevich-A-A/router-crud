@@ -1,0 +1,65 @@
+.post-comment-block {
+    display: flex;
+    align-items: center;
+}
+
+.post-comment-avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.post-comment-input-block {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #828990;
+    border-radius: 10px;
+    background-color: #eaebec;
+}
+
+.post-comment-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.post-comment-input:focus-visible {
+    outline: none;
+}
+
+.post-comment-input-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.post-comment-input-smile,
+.post-comment-input-photo,
+.post-comment-input-gif,
+.post-comment-input-emodji {
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.post-comment-input-smile {
+    background: url(./img/smile.svg);
+}
+
+.post-comment-input-photo {
+    background: url(./img/photo.svg);
+}
+
+.post-comment-input-gif {
+    background: url(./img/gif.svg);
+}
+
+.post-comment-input-emodji {
+    background: url(./img/sticker.svg);
+}

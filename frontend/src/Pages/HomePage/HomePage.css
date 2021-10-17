@@ -1,0 +1,16 @@
+.link-post-block {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.link-to-new-post {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    background-color: rgb(88, 88, 255);
+    border-radius: 5px;
+}
