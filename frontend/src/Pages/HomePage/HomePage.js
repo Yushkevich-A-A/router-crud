@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-import './HomePage.css';
+import AdmitButton from '../../Components/Buttons/AdmitButton/AdmitButton';
 import PostsList from '../../Components/PostsList/PostsList';
+import PostContext from '../../Context/PostContext';
+import './HomePage.css';
 
 function HomePage(props) {
-    const [ list, setList ] = useState([]);
+    const { list, handleChangeList } = useContext(PostContext)
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_CURRENT_URL}/posts`)
             .then( response => response.json())
-            .then( data => setList(data) )
+            .then( data => handleChangeList(data) )
+            // eslint-disable-next-line
     }, [])
 
     return (
         <div className='home-page'>
             <div className="link-post-block">
-                <Link to='/posts/new' className='link-to-new-post'>Создать пост</Link>
+                <Link to='/posts/new'>
+                    <AdmitButton name='Создать пост'/>
+                </Link>
             </div>
             <PostsList list={list}/>
         </div>
     )
 }
-
-HomePage.propTypes = {
-
-};
 
 export default HomePage;
 

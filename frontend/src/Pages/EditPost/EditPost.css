@@ -1,0 +1,44 @@
+.edit-post {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.header-edit-post {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-action{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-post-body {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-user-avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.edit-post-input-block {
+    width: 100%;
+}
+
+.edit-post-input {
+    width: 100%;
+    border: 1px solid #828990;
+    border-radius: 10px;
+    padding: 10px;
+    color: black
+}
+
+.edit-post-input:focus-visible {
+    outline: none;
+}

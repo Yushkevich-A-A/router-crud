@@ -1,0 +1,14 @@
+.header-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-post::after {
+    content: '\203A';
+    display: block;
+    width: 30px;
+    font-size: 24px;
+    transform: rotate(90deg);
+    display: block;
+} 

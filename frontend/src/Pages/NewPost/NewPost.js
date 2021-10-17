@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 import './NewPost.css';
 import UserAvatar from '../../Components/UserAvatar/UserAvatar';
+import AdmitButton from '../../Components/Buttons/AdmitButton/AdmitButton';
+import ButtonCancel from '../../Components/Buttons/ButtonCancel/ButtonCancel';
 
 function NewPost(props) {
 
     const [ value, setValue ] = useState('');
     const [ redirect, setRedirect ] = useState(false)
-
-    const handleCancel = () => {
-        setRedirect(!redirect)
-    }
-
+    
     const handleChange = (e) => {
         setValue(e.target.value);
     }
 
-    const handleSent = async () => {
-        const resp = await fetch(`${process.env.REACT_APP_CURRENT_URL}/posts`, {
+    const handleSent = () => {
+        if (value.trim() === '') {
+            return;
+        }
+
+        fetch(`${process.env.REACT_APP_CURRENT_URL}/posts`, {
             method: 'POST',
             body: JSON.stringify({id: 0,content: value}),
-        })
-        setRedirect(!redirect)
+        }).then( () => setRedirect(!redirect))
     }
 
     return (
         <div className='new-post'>
             <div className="new-post-header">
-                <div className="new-post-cancel" onClick={handleCancel}></div>
+                <span className="new-post-header-label">Создать Публикацию</span>
+                <ButtonCancel />            
             </div>
             <div className="new-post-input-block">
                 <div className="new-post-author-avatar">
@@ -40,9 +41,7 @@ function NewPost(props) {
 
             </div>
             <div className="new-post-send-block">
-                <div className="new-post-send" onClick={handleSent}>
-                    Опубликовать
-                </div>
+                <AdmitButton name='Опубликовать' handleClick={handleSent}/>
             </div>
             {redirect && <Redirect to='/' />}
         </div>
